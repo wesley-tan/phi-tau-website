@@ -42,6 +42,8 @@ body {
 .logo a {
     text-decoration: none;
     color: var(--white);
+    z-index: 1001;
+    position: relative;
 }
 
 .logo h1 {
@@ -51,15 +53,33 @@ body {
 
 .nav-links {
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--primary-color);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+.nav-links.active {
+    transform: translateY(0);
+    display: flex;
 }
 
 .nav-links a {
     color: var(--white);
     text-decoration: none;
-    margin-left: 1.5rem;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     font-weight: 500;
     transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
 }
 
 .nav-links a:hover {
@@ -69,11 +89,17 @@ body {
 .hamburger {
     font-size: 1.5rem;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    position: relative;
 }
 
 .hamburger:hover {
     transform: scale(1.1);
+}
+
+.hamburger.active i::before {
+    content: '\f00d';
 }
 
 /* Hero Section */
@@ -264,7 +290,19 @@ body {
 /* Media queries for larger screens */
 @media (min-width: 768px) {
     .nav-links {
+        position: static;
         display: flex;
+        flex-direction: row;
+        height: auto;
+        transform: none;
+        background-color: transparent;
+        width: auto;
+        gap: 1.5rem;
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
+        margin: 0;
     }
 
     .hamburger {
