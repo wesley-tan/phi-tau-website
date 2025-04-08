@@ -656,47 +656,84 @@ main {
 }
 
 /* Contact Form */
-.contact-form {
+.contact-form-section {
+    padding: 4rem 0;
+    background-color: var(--light-gray);
+}
+
+.contact-form-container {
     max-width: 600px;
     margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
     font-weight: 500;
+    color: var(--primary-color);
 }
 
 .form-group input,
 .form-group textarea {
-    width: 100%;
     padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
     font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-group textarea {
-    resize: vertical;
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(26, 35, 126, 0.2);
 }
 
 .submit-button {
     background-color: var(--primary-color);
     color: var(--white);
-    padding: 1rem 2rem;
     border: none;
+    padding: 1rem 2rem;
     border-radius: 50px;
-    cursor: pointer;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    margin-top: 1rem;
 }
 
 .submit-button:hover {
     background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media queries for mobile */
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 1.5rem;
+    }
+    
+    .submit-button {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 /* Contact Cards */
@@ -1017,7 +1054,7 @@ footer {
     text-align: center;
     padding: 8rem 2rem 6rem;
     background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(26, 35, 126, 0.85)),
-                url('../images/header-bg.jpg') center/cover;
+                url('../assets/images/phi-tau-building.jpg') center/cover;
     color: var(--white);
     margin-bottom: 4rem;
     position: relative;
