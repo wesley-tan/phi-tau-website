@@ -110,7 +110,7 @@ body {
 .hero {
     min-height: calc(100vh - var(--navbar-height));
     background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(26, 35, 126, 0.8)),
-                url('../images/hero-bg.jpg') center/cover;
+                url('../images/phi-tau-building.jpg') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
